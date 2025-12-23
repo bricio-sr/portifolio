@@ -102,8 +102,8 @@ export default function About() {
             <Media
               enlarge
               radius="full"
-              sizes={person.avatar.toString()}
-              alt={person.avatar}
+              sizes="(max-width: 768px) 100vw, 400px"
+              alt={person.name}
               src={person.avatar}
             />
             <Row gap="8" vertical="center">
