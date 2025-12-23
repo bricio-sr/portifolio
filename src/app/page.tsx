@@ -12,6 +12,7 @@ import {
   Schema,
   Row,
   Accordion,
+  Flex,
 } from "@once-ui-system/core";
 import { baseURL, about, person, social } from "@/resources";
 import TableOfContents from "@/components/about/TableOfContents";
@@ -45,7 +46,7 @@ export default function About() {
       display: about.studies.display,
       items: about.studies.institutions.map((institution) => institution.name),
     },
-        {
+    {
       title: about.certs.title,
       display: about.certs.display,
       items: about.certs.categories.map((institution) => institution.title),
@@ -99,13 +100,13 @@ export default function About() {
             flex={3}
             horizontal="center"
           >
-            <Media
-              enlarge
-              radius="full"
-              sizes="160px"
-              alt={person.name}
-              src={person.avatar}
-            />
+            <Flex radius="full" overflow="hidden">
+              <img
+                src={person.avatar}
+                alt={person.name}
+                style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+              />
+            </Flex>
             <Row gap="8" vertical="center">
               <Icon onBackground="accent-weak" name="globe" />
               {person.location}
@@ -212,7 +213,7 @@ export default function About() {
                         <Text
                           variant="body-default-s"
                           onBackground="brand-weak"
-                          style={{marginBottom:-15}}
+                          style={{ marginBottom: -15 }}
                         >
                           {experience.users} colaboradores
                         </Text>
@@ -288,7 +289,7 @@ export default function About() {
               </Heading>
               <Column fillWidth gap="4" marginBottom="xl" >
                 {about.certs.categories.map((category, index) => (
-                  <Accordion key={index} title={category.title} style={{marginLeft:-15}}>
+                  <Accordion key={index} title={category.title} style={{ marginLeft: -15 }}>
                     <Column as="ul" gap="8" paddingBottom="m">
                       {category.items.map((item, i) => (
                         <Text as="li" key={i} variant="body-default-m" onBackground="neutral-weak">
