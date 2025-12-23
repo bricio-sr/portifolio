@@ -9,7 +9,7 @@ const person: Person = {
   avatar: "/images/avatar.jpg",
   email: "f@bricio.dev.br",
   location: "America/Sao_Paulo",
-  languages: ["Portuguese", "English"],
+  languages: ["Português", "English"],
 };
 
 const newsletter: Newsletter = {

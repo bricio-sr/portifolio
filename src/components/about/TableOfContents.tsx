@@ -45,7 +45,7 @@ const TableOfContents: React.FC<TableOfContentsProps> = ({ structure, about }) =
       position="fixed"
       paddingLeft="24"
       gap="32"
-      m={{ hide: true }}
+      l={{ hide: true }}
     >
       {structure
         .filter((section) => section.display)

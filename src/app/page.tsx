@@ -45,6 +45,11 @@ export default function About() {
       display: about.studies.display,
       items: about.studies.institutions.map((institution) => institution.name),
     },
+        {
+      title: about.certs.title,
+      display: about.certs.display,
+      items: about.certs.categories.map((institution) => institution.title),
+    },
     {
       title: about.technical.title,
       display: about.technical.display,
@@ -78,7 +83,7 @@ export default function About() {
           <TableOfContents structure={structure} about={about} />
         </Column>
       )}
-      <Row fillWidth s={{ direction: "column"}} horizontal="center">
+      <Row fillWidth s={{ direction: "column" }} horizontal="center">
         {about.avatar.display && (
           <Column
             className={styles.avatar}
@@ -94,7 +99,13 @@ export default function About() {
             flex={3}
             horizontal="center"
           >
-            <Avatar src={person.avatar} size="xl" />
+            <Media
+              enlarge
+              radius="full"
+              sizes={person.avatar.toString()}
+              alt={person.avatar}
+              src={person.avatar}
+            />
             <Row gap="8" vertical="center">
               <Icon onBackground="accent-weak" name="globe" />
               {person.location}
@@ -118,7 +129,7 @@ export default function About() {
             vertical="center"
             marginBottom="32"
           >
-            
+
             <Heading className={styles.textAlign} variant="display-strong-xl">
               {person.name}
             </Heading>
@@ -141,47 +152,47 @@ export default function About() {
                 data-border="rounded"
               >
                 {social
-                      .filter((item) => item.essential)
-                      .map(
-                  (item) =>
-                    item.link && (
-                      <React.Fragment key={item.name}>
-                        <Row s={{ hide: true }}>
-                          <Button
-                            key={item.name}
-                            href={item.link}
-                            prefixIcon={item.icon}
-                            label={item.name}
-                            size="s"
-                            weight="default"
-                            variant="secondary"
-                          />
-                        </Row>
-                        <Row hide s={{ hide: false }}>
-                          <IconButton
-                            size="l"
-                            key={`${item.name}-icon`}
-                            href={item.link}
-                            icon={item.icon}
-                            variant="secondary"
-                          />
-                        </Row>
-                      </React.Fragment>
-                    ),
-                )}
+                  .filter((item) => item.essential)
+                  .map(
+                    (item) =>
+                      item.link && (
+                        <React.Fragment key={item.name}>
+                          <Row s={{ hide: true }}>
+                            <Button
+                              key={item.name}
+                              href={item.link}
+                              prefixIcon={item.icon}
+                              label={item.name}
+                              size="s"
+                              weight="default"
+                              variant="secondary"
+                            />
+                          </Row>
+                          <Row hide s={{ hide: false }}>
+                            <IconButton
+                              size="l"
+                              key={`${item.name}-icon`}
+                              href={item.link}
+                              icon={item.icon}
+                              variant="secondary"
+                            />
+                          </Row>
+                        </React.Fragment>
+                      ),
+                  )}
               </Row>
             )}
           </Column>
 
           {about.intro.display && (
-            <Column textVariant="body-default-l" fillWidth gap="m" marginBottom="xl">
+            <Column textVariant="body-default-l" fillWidth gap="m" marginBottom="xl" className={styles.textAlign}>
               {about.intro.description}
             </Column>
           )}
 
           {about.work.display && (
             <>
-              <Heading as="h2" id={about.work.title} variant="display-strong-s" marginBottom="m">
+              <Heading as="h2" id={about.work.title} variant="display-strong-s" marginBottom="m" className={styles.textAlign}>
                 {about.work.title}
               </Heading>
               <Column fillWidth gap="l" marginBottom="xl">
@@ -192,8 +203,8 @@ export default function About() {
                         {experience.company}
                       </Text>
                       <Column horizontal="end" vertical="end">
-                        <Text 
-                          variant="heading-default-xs" 
+                        <Text
+                          variant="heading-default-xs"
                           onBackground="neutral-weak"
                           marginTop="16">
                           {experience.timeframe}
@@ -201,8 +212,7 @@ export default function About() {
                         <Text
                           variant="body-default-s"
                           onBackground="brand-weak"
-                          marginLeft="8"
-                          marginTop="2"
+                          style={{marginBottom:-15}}
                         >
                           {experience.users} colaboradores
                         </Text>
@@ -211,13 +221,13 @@ export default function About() {
                     <Text variant="body-default-s" onBackground="brand-weak" marginBottom="m">
                       {experience.role}
                     </Text>
-                    <Column as="ul" gap="16">
+                    <Column gap="16">
                       {experience.achievements.map(
                         (achievement: React.ReactNode, index: number) => (
                           <Text
-                            as="li"
                             variant="body-default-m"
                             key={`${experience.company}-${index}`}
+                            className={styles.textAlign}
                           >
                             {achievement}
                           </Text>
@@ -253,10 +263,10 @@ export default function About() {
 
           {about.studies.display && (
             <>
-              <Heading as="h2" id={about.studies.title} variant="display-strong-s" marginBottom="l">
+              <Heading as="h2" id={about.studies.title} variant="display-strong-s" marginBottom="l" className={styles.textAlign}>
                 {about.studies.title}
               </Heading>
-              <Column fillWidth gap="l" marginBottom="l">
+              <Column fillWidth gap="l" marginBottom="l" className={styles.textAlign}>
                 {about.studies.institutions.map((institution, index) => (
                   <Column key={`${institution.name}-${index}`} fillWidth gap="4">
                     <Text id={institution.name} variant="heading-strong-l">
@@ -273,12 +283,12 @@ export default function About() {
 
           {about.certs?.display && (
             <>
-              <Heading as="h2" id={about.certs.title} variant="display-strong-s" marginBottom="m" marginTop="l">
+              <Heading as="h2" id={about.certs.title} variant="display-strong-s" marginBottom="m" marginTop="l" className={styles.textAlign}>
                 {about.certs.title}
               </Heading>
-              <Column fillWidth gap="4" marginBottom="xl">
+              <Column fillWidth gap="4" marginBottom="xl" >
                 {about.certs.categories.map((category, index) => (
-                  <Accordion key={index} title={category.title}>
+                  <Accordion key={index} title={category.title} style={{marginLeft:-15}}>
                     <Column as="ul" gap="8" paddingBottom="m">
                       {category.items.map((item, i) => (
                         <Text as="li" key={i} variant="body-default-m" onBackground="neutral-weak">
@@ -298,10 +308,11 @@ export default function About() {
                 id={about.technical.title}
                 variant="display-strong-s"
                 marginBottom="40"
+                className={styles.textAlign}
               >
                 {about.technical.title}
               </Heading>
-              <Column fillWidth gap="l">
+              <Column fillWidth gap="l" className={styles.textAlign}>
                 {about.technical.skills.map((skill, index) => (
                   <Column key={`${skill}-${index}`} fillWidth gap="4">
                     <Text id={skill.title} variant="heading-strong-l">
