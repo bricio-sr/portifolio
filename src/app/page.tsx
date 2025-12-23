@@ -102,7 +102,7 @@ export default function About() {
             <Media
               enlarge
               radius="full"
-              sizes="(max-width: 768px) 100vw, 400px"
+              sizes="160px"
               alt={person.name}
               src={person.avatar}
             />
