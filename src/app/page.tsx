@@ -196,32 +196,28 @@ export default function About() {
               <Heading as="h2" id={about.work.title} variant="display-strong-s" marginBottom="m" className={styles.textAlign}>
                 {about.work.title}
               </Heading>
-              <Column fillWidth gap="l" marginBottom="xl">
+              <Column fillWidth gap="xl" marginBottom="xl">
                 {about.work.experiences.map((experience, index) => (
                   <Column key={`${experience.company}-${experience.role}-${index}`} fillWidth>
-                    <Row fillWidth horizontal="between" vertical="center">
-                      <Text id={experience.company} variant="heading-strong-l">
-                        {experience.company}
-                      </Text>
-                      <Column horizontal="end" vertical="end">
+                    
+                    <Row horizontal="between" vertical="center" marginY="l">
+                      <Column horizontal="start" vertical="start">
+                        <Text id={experience.company} variant="heading-strong-l">
+                          {experience.company}
+                        </Text>
+                        <Text variant="body-default-l" onBackground="brand-weak" marginBottom="m">
+                          {experience.role}
+                        </Text>
                         <Text
                           variant="heading-default-xs"
                           onBackground="neutral-weak"
-                          marginTop="16">
-                          {experience.timeframe}
-                        </Text>
-                        <Text
-                          variant="body-default-s"
-                          onBackground="brand-weak"
-                          style={{ marginBottom: -15 }}
+                          style={{ marginTop: -10 }}
                         >
-                          {experience.users} colaboradores
+                          {experience.timeframe}
                         </Text>
                       </Column>
                     </Row>
-                    <Text variant="body-default-s" onBackground="brand-weak" marginBottom="m">
-                      {experience.role}
-                    </Text>
+                    
                     <Column gap="16">
                       {experience.achievements.map(
                         (achievement: React.ReactNode, index: number) => (
@@ -267,7 +263,7 @@ export default function About() {
               <Heading as="h2" id={about.studies.title} variant="display-strong-s" marginBottom="l" className={styles.textAlign}>
                 {about.studies.title}
               </Heading>
-              <Column fillWidth gap="l" marginBottom="l" className={styles.textAlign}>
+              <Column fillWidth gap="xl" marginBottom="xl" className={styles.textAlign}>
                 {about.studies.institutions.map((institution, index) => (
                   <Column key={`${institution.name}-${index}`} fillWidth gap="4">
                     <Text id={institution.name} variant="heading-strong-l">
@@ -284,7 +280,7 @@ export default function About() {
 
           {about.certs?.display && (
             <>
-              <Heading as="h2" id={about.certs.title} variant="display-strong-s" marginBottom="m" marginTop="l" className={styles.textAlign}>
+              <Heading as="h2" id={about.certs.title} variant="display-strong-s" marginBottom="xl" className={styles.textAlign}>
                 {about.certs.title}
               </Heading>
               <Column fillWidth gap="4" marginBottom="xl" >
@@ -308,14 +304,14 @@ export default function About() {
                 as="h2"
                 id={about.technical.title}
                 variant="display-strong-s"
-                marginBottom="40"
+                marginBottom="xl"
                 className={styles.textAlign}
               >
                 {about.technical.title}
               </Heading>
-              <Column fillWidth gap="l" className={styles.textAlign}>
+              <Column fillWidth gap="xl" className={styles.textAlign}>
                 {about.technical.skills.map((skill, index) => (
-                  <Column key={`${skill}-${index}`} fillWidth gap="4">
+                  <Column key={`${skill}-${index}`} fillWidth gap="m">
                     <Text id={skill.title} variant="heading-strong-l">
                       {skill.title}
                     </Text>
