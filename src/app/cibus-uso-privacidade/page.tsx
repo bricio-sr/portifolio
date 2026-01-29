@@ -178,7 +178,7 @@ export default function Termos() {
                 <Heading 
                   as="h2" 
                   variant="display-strong-s" 
-                  marginBottom="m" 
+                  marginBottom="m"
                   className={styles.textAlign}
                   style={{ borderBottom: '1px solid var(--neutral-border-medium)', paddingBottom: '16px' }}
                 >
