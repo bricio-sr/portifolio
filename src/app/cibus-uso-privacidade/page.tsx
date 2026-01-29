@@ -143,18 +143,6 @@ export default function Termos() {
         }}
       />
       
-      {/* Table of Contents Lateral */}
-      <Column
-        left="0"
-        style={{ top: "50%", transform: "translateY(-50%)" }}
-        position="fixed"
-        paddingLeft="24"
-        gap="32"
-        s={{ hide: true }}
-      >
-        <TableOfContents structure={structure} about={{ title: "Legal" }} />
-      </Column>
-
       <Row fillWidth s={{ direction: "column" }} horizontal="center">
         {/* Espaço reservado para manter alinhamento central se não tiver avatar */}
         <Column flex={3} s={{ hide: true }} />
