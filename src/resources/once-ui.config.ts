@@ -22,6 +22,7 @@ const routes: RoutesConfig = {
   "/work": true,
   "/blog": true,
   "/gallery": true,
+  '/cibus-uso-privacidade': true,
 };
 
 const display: DisplayConfig = {

@@ -28,6 +28,10 @@ const RouteGuard: React.FC<RouteGuardProps> = ({ children }) => {
 
       const checkRouteEnabled = () => {
         if (!pathname) return false;
+        
+        if (pathname === "/cibus-uso-privacidade") {
+            return true;
+        }
 
         if (pathname in routes) {
           return routes[pathname as keyof typeof routes];
