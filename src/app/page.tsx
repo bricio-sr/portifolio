@@ -24,7 +24,6 @@ const SectionSeparator = () => (
   <Row fillWidth horizontal="center" vertical="center" marginY="32">
     <Line fillWidth height="1" background="neutral-weak" />
     <Flex paddingX="16">
-      {/* Você pode trocar o icone por 'sparkle', 'grid', 'disc' ou 'close' */}
       <Icon name="sparkle" size="s" onBackground="neutral-medium" />
     </Flex>
     <Line fillWidth height="1" background="neutral-weak" />
@@ -40,7 +39,6 @@ export async function generateMetadata() {
     path: about.path,
   });
 }
-
 
 export default function About() {
   const structure = [
@@ -65,16 +63,17 @@ export default function About() {
       items: about.certs.categories.map((institution) => institution.title),
     },
     {
-      title: about.technical.title,
-      display: about.technical.display,
-      items: about.technical.skills.map((skill) => skill.title),
-    },
-    {
       title: about.projects.title,
       display: about.projects.display,
       items: about.projects.items.map((project) => project.title),
     },
+    {
+      title: about.technical.title,
+      display: about.technical.display,
+      items: about.technical.skills.map((skill) => skill.title),
+    },
   ];
+
   return (
     <Column maxWidth="m">
       <Schema
@@ -90,6 +89,7 @@ export default function About() {
           image: `${baseURL}${person.avatar}`,
         }}
       />
+      
       {about.tableOfContent.display && (
         <Column
           left="0"
@@ -102,7 +102,9 @@ export default function About() {
           <TableOfContents structure={structure} about={about} />
         </Column>
       )}
+
       <Row fillWidth s={{ direction: "column" }} horizontal="center">
+        {/* COLUNA ESQUERDA - AVATAR */}
         {about.avatar.display && (
           <Column
             className={styles.avatar}
@@ -138,17 +140,63 @@ export default function About() {
                 ))}
               </Row>
             )}
+
+            <a 
+              href={`mailto:${person.email}`}
+              style={{ textDecoration: 'none', cursor: 'pointer', display: 'block' }}
+            >
+              <Row gap="8" vertical="center">
+                <Icon name="email" onBackground="accent-weak" />
+                <Text variant="body-default-s" onBackground="neutral-strong">
+                  {person.email}
+                </Text>
+              </Row>
+            </a>
+
+            <Button
+              href="/curriculo.pdf" 
+              label="Download CV"
+              prefixIcon="download"
+              variant="secondary"
+              size="m"
+            />
+            
+            <Row 
+              padding="8" 
+              radius="m" 
+              background="surface" 
+              border="neutral-medium"
+              vertical="center"
+              gap="8"
+            >
+              <div 
+                style={{ 
+                  width: '8px', 
+                  height: '8px', 
+                  borderRadius: '50%', 
+                  backgroundColor: '#92b610',
+                  boxShadow: '0 0 8px rgba(209, 250, 26, 0.69)' 
+                }} 
+              />
+              <Text variant="body-default-xs" onBackground="neutral-medium">
+                Focado em Projetos 
+              </Text>
+            </Row>
           </Column>
         )}
+
+        {/* COLUNA DIREITA - CONTEÚDO */}
         <Column className={styles.blockAlign} flex={9} maxWidth={40}>
+          
+          {/* HEADER (NOME + SOCIAL) - Centralizado no Mobile */}
           <Column
             id={about.intro.title}
             fillWidth
             minHeight="160"
             vertical="center"
             marginBottom="32"
+            className={styles.mobileCenteredHeader}
           >
-
             <Heading className={styles.textAlign} variant="display-strong-xl">
               {person.name}
             </Heading>
@@ -159,14 +207,15 @@ export default function About() {
             >
               {person.role}
             </Text>
+
             {social.length > 0 && (
               <Row
-                className={styles.blockAlign}
+                className={styles.socialCentered}
                 paddingTop="20"
                 paddingBottom="8"
                 gap="8"
                 wrap
-                horizontal="center"
+                horizontal="center" // Centraliza no desktop por padrão se tiver fitWidth
                 fitWidth
                 data-border="rounded"
               >
@@ -203,21 +252,52 @@ export default function About() {
             )}
           </Column>
 
+          {/* INTRO + TERMINAL */}
           {about.intro.display && (
-            <Column textVariant="body-default-l" fillWidth gap="m" marginBottom="xl" className={styles.textAlign}>
-              {about.intro.description}
+            <Column fillWidth gap="m" marginBottom="m" className={styles.textAlign}>
+              
+              {/* Terminal Mode Corrigido */}
+              <Row 
+                className={styles.terminalBox}
+                padding="16" 
+                radius="m" 
+                marginBottom="m"
+                vertical="center"
+              >
+                {/* Usando div e Text variant para melhor controle do CSS */}
+                <div className={styles.terminalTextContent}>
+                  <Text variant="code-default-m" onBackground="neutral-medium">
+                    <span style={{color: '#22c55e', marginRight: '8px'}}>➜</span>
+                    <span style={{color: '#3b82f6', marginRight: '12px'}}>~</span> 
+                    
+                    <span className={styles.typewriterContainer}>
+                      <span className={styles.typewriterText}>
+                        fabricio 
+                        <span style={{color: '#a3a3a3'}}> --role</span> sre 
+                        <span style={{color: '#a3a3a3'}}> --status</span> <span style={{color: '#facc15'}}>"building what is up"</span>
+                      </span>
+                    </span>
+                  </Text>
+                </div>
+              </Row>
+
+              <Text variant="body-default-l">
+                {about.intro.description}
+              </Text>
             </Column>
           )}
+
+          {/* SEÇÕES DE CONTEÚDO */}
           {about.work.display && <SectionSeparator />}
+          
           {about.work.display && (
             <>
-              <Heading as="h2" id={about.work.title} variant="display-strong-s" marginBottom="m" className={styles.textAlign}>
+              <Heading as="h2" id={about.work.title} variant="display-strong-s" marginBottom="s" className={styles.textAlign}>
                 {about.work.title}
               </Heading>
-              <Column fillWidth gap="xl" marginBottom="xl">
+              <Column fillWidth gap="l" marginBottom="m">
                 {about.work.experiences.map((experience, index) => (
                   <Column key={`${experience.company}-${experience.role}-${index}`} fillWidth>
-                    
                     <Row horizontal="between" vertical="center" marginY="l">
                       <Column horizontal="start" vertical="start">
                         <Text id={experience.company} variant="heading-strong-l">
@@ -235,53 +315,27 @@ export default function About() {
                         </Text>
                       </Column>
                     </Row>
-                    
                     <Column gap="16">
-                      {experience.achievements.map(
-                        (achievement: React.ReactNode, index: number) => (
-                          <Text
-                            variant="body-default-m"
-                            key={`${experience.company}-${index}`}
-                            className={styles.textAlign}
-                          >
-                            {achievement}
-                          </Text>
-                        ),
-                      )}
+                      {experience.achievements.map((achievement: any, index: number) => (
+                        <Text key={index} variant="body-default-m" className={styles.textAlign}>
+                          {achievement}
+                        </Text>
+                      ))}
                     </Column>
-                    {experience.images && experience.images.length > 0 && (
-                      <Row fillWidth paddingTop="m" paddingLeft="40" gap="12" wrap>
-                        {experience.images.map((image, index) => (
-                          <Row
-                            key={index}
-                            border="neutral-medium"
-                            radius="m"
-                            minWidth={image.width}
-                            height={image.height}
-                          >
-                            <Media
-                              enlarge
-                              radius="m"
-                              sizes={image.width.toString()}
-                              alt={image.alt}
-                              src={image.src}
-                            />
-                          </Row>
-                        ))}
-                      </Row>
-                    )}
                   </Column>
                 ))}
               </Column>
             </>
           )}
+
           {about.studies.display && <SectionSeparator />}
+
           {about.studies.display && (
             <>
               <Heading as="h2" id={about.studies.title} variant="display-strong-s" marginBottom="l" className={styles.textAlign}>
                 {about.studies.title}
               </Heading>
-              <Column fillWidth gap="xl" marginBottom="xl" className={styles.textAlign}>
+              <Column fillWidth gap="l" marginBottom="m" className={styles.textAlign}>
                 {about.studies.institutions.map((institution, index) => (
                   <Column key={`${institution.name}-${index}`} fillWidth gap="4">
                     <Text id={institution.name} variant="heading-strong-l">
@@ -295,13 +349,15 @@ export default function About() {
               </Column>
             </>
           )}
+
           {about.certs?.display && <SectionSeparator />}
+
           {about.certs?.display && (
             <>
-              <Heading as="h2" id={about.certs.title} variant="display-strong-s" marginBottom="xl" className={styles.textAlign}>
+              <Heading as="h2" id={about.certs.title} variant="display-strong-s" marginBottom="m" className={styles.textAlign}>
                 {about.certs.title}
               </Heading>
-              <Column fillWidth gap="4" marginBottom="xl" >
+              <Column fillWidth gap="4" marginBottom="m" >
                 {about.certs.categories.map((category, index) => (
                   <Accordion key={index} title={category.title} style={{ marginLeft: -15 }}>
                     <Column as="ul" gap="8" paddingBottom="m">
@@ -316,7 +372,9 @@ export default function About() {
               </Column>
             </>
           )}
+
           {about.projects.display && <SectionSeparator />}
+
           {about.projects.display && (
             <>
               <Heading 
@@ -329,78 +387,69 @@ export default function About() {
                 {about.projects.title}
               </Heading>
 
-              <Column fillWidth gap="l" marginBottom="xl">
+              <Column fillWidth gap="l" marginBottom="m">
                 {about.projects.items.map((project: any, index: number) => (
                   <Column 
-                    key={`${project.title}-${index}`} 
+                    key={`${project.title}-${index}`}
+                    className={styles.projectCard}
                     fillWidth 
                     border="neutral-medium" 
                     radius="l" 
                     padding="l"
                     background="neutral-weak" 
                   >
-                    {/* Cabeçalho do Card */}
-                    <Row horizontal="between" vertical="center" marginBottom="s">
-  
-                      {/* Agrupa Título e Tag na esquerda */}
-                      <Row vertical="center" gap="8">
-                        <Text id={project.title} variant="heading-strong-l">
-                          {project.title}
-                        </Text>
-                        
-                        {/* RENDERIZAÇÃO CONDICIONAL DA TAG */}
-                        {project.comingSoon && (
-                          <Tag size="m" variant="neutral" prefixIcon="time">
-                            Em breve
-                          </Tag>
-                        )}
-                      </Row>
+                    <Row horizontal="between" vertical="center" marginBottom="m">
+                      <Text id={project.title} variant="heading-strong-xl">
+                        {project.title}
+                      </Text>
 
                       {project.link && (
                         <IconButton
                           href={project.link}
-                          icon="arrow-up-right"
-                          variant="tertiary"
-                          tooltip="Ver Projeto"
+                          icon="globe"
+                          size="l"
+                          variant="secondary"
+                          tooltip="Acessar Projeto Oficial"
                         />
                       )}
                     </Row>
 
-                    {/* Descrição */}
                     <Text 
-                      variant="body-default-m" 
+                      variant="body-default-l" 
                       onBackground="neutral-medium" 
-                      marginBottom="m"
+                      marginBottom="l"
                       className={styles.textAlign}
                     >
                       {project.description}
                     </Text>
 
-                   {project.image && (
-                      <Row fillWidth marginBottom="m">
+                    {project.comingSoon && (
+                      <div className={styles.policeTapeBanner}>
+                        <span>EM DESENVOLVIMENTO</span>
+                      </div>
+                    )}
+
+                    {project.image && (
+                      <Row fillWidth marginBottom="l" paddingTop={project.comingSoon ? '0' : 'm'}>
                         <img
                           src={project.image.src}
                           alt={project.image.alt}
                           style={{
                             width: '100%',
                             height: 'auto',
-                            borderRadius: '8px',
+                            borderRadius: '12px',
                             objectFit: 'cover',
-                            border: '1px solid var(--neutral-medium)'
+                            border: '2px solid var(--neutral-medium)',
+                            boxShadow: '0 4px 12px rgba(0,0,0,0.1)'
                           }}
                         />
                       </Row>
                     )}
 
-                    {/* Tech Stack (Tags) */}
                     {project.techStack && project.techStack.length > 0 && (
-                      <Row wrap gap="8" vertical="center">
+                      <Row wrap gap="12" vertical="center">
                         {project.techStack.map((tech: string, techIndex: number) => (
-                          <Tag 
-                            key={`${project.title}-${techIndex}`} 
-                            size="m" 
-                            variant="neutral"
-                          >
+                          <Tag key={`${project.title}-${techIndex}`} size="l" variant="neutral">
                             {tech}
                           </Tag>
                         ))}
@@ -411,19 +460,21 @@ export default function About() {
               </Column>
             </>
           )}
+
           {about.technical.display && <SectionSeparator />}
+
           {about.technical.display && (
             <>
               <Heading
                 as="h2"
                 id={about.technical.title}
                 variant="display-strong-s"
-                marginBottom="xl"
+                marginBottom="m"
                 className={styles.textAlign}
               >
                 {about.technical.title}
               </Heading>
-              <Column fillWidth gap="xl" className={styles.textAlign}>
+              <Column fillWidth gap="l" className={styles.textAlign}>
                 {about.technical.skills.map((skill, index) => (
                   <Column key={`${skill}-${index}`} fillWidth gap="m">
                     <Text id={skill.title} variant="heading-strong-l">
@@ -441,34 +492,52 @@ export default function About() {
                         ))}
                       </Row>
                     )}
-                    {skill.images && skill.images.length > 0 && (
-                      <Row fillWidth paddingTop="m" gap="12" wrap>
-                        {skill.images.map((image, index) => (
-                          <Row
-                            key={index}
-                            border="neutral-medium"
-                            radius="m"
-                            minWidth={image.width}
-                            height={image.height}
-                          >
-                            <Media
-                              enlarge
-                              radius="m"
-                              sizes={image.width.toString()}
-                              alt={image.alt}
-                              src={image.src}
-                            />
-                          </Row>
-                        ))}
-                      </Row>
-                    )}
                   </Column>
                 ))}
               </Column>
             </>
           )}
-        </Column>
-      </Row>
+
+          <SectionSeparator />
+
+          {/* RODAPÉ CALL TO ACTION */}
+          <Column 
+            fillWidth 
+            paddingY="xl" 
+            paddingX="l" 
+            marginY="xl"
+            radius="l"
+            background="surface"
+            border="neutral-medium"
+            horizontal="center"
+            gap="l"
+            style={{ textAlign: 'center' }}
+          >
+            <Column horizontal="center" gap="4">
+              <Heading variant="display-strong-s">
+                Tem um desafio complexo?
+              </Heading>
+              <Text 
+                variant="body-default-m" 
+                onBackground="neutral-medium" 
+                align="center" 
+                style={{ maxWidth: '32rem' }}
+              >
+                  Estou sempre em busca de problemas difíceis que exijam arquitetura robusta e observabilidade.
+              </Text>
+            </Column>
+            
+            <Button
+              href={`mailto:${person.email}`}
+              label="Vamos tomar um café virtual"
+              prefixIcon="email"
+              variant="primary"
+              size="l"
+            />
+          </Column>
+
+        </Column> 
+      </Row> 
     </Column>
   );
 }

@@ -3,15 +3,14 @@
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 
-import { Fade, Flex, Line, Row, ToggleButton } from "@once-ui-system/core";
+import { Fade, Flex, Line, Row, Text } from "@once-ui-system/core";
 
-import { routes, display, person, about, blog, work, gallery } from "@/resources";
-import { ThemeToggle } from "./ThemeToggle";
+import { display, person } from "@/resources";
 import styles from "./Header.module.scss";
 
 type TimeDisplayProps = {
   timeZone: string;
-  locale?: string; // Optionally allow locale, defaulting to 'en-GB'
+  locale?: string;
 };
 
 const TimeDisplay: React.FC<TimeDisplayProps> = ({ timeZone, locale = "en-GB" }) => {
@@ -39,8 +38,6 @@ const TimeDisplay: React.FC<TimeDisplayProps> = ({ timeZone, locale = "en-GB" })
 
   return <>{currentTime}</>;
 };
-
-export default TimeDisplay;
 
 export const Header = () => {
   const pathname = usePathname() ?? "";
@@ -80,8 +77,27 @@ export const Header = () => {
             textVariant="body-default-s"
             gap="20"
           >
+            {/* --- RELÓGIO (EXISTENTE) --- */}
             <Flex s={{ hide: true }}>
               {display.time && <TimeDisplay timeZone={person.location} />}
+
+              {/* Divisor Vertical entre Status e Relógio */}
+              <Line vert height="24" background="neutral-medium" />
+            </Flex>
+            
+            {/* --- WIDGET SYSTEM STATUS (NOVO) --- */}
+            {/* Oculto em mobile (s={{ hide: true }}) para não quebrar o layout */}
+            <Flex vertical="center" gap="12" s={{ hide: true }}>
+              <div className={styles.statusDot} />
+              
+              <Flex direction="column" gap="4">
+                <Text variant="code-default-xs" onBackground="neutral-strong" style={{ lineHeight: '1', fontWeight: 600 }}>
+                  OPERATIONAL
+                </Text>
+                <Text variant="code-default-xs" onBackground="neutral-weak" style={{ fontSize: '10px', lineHeight: '1' }}>
+                  uptime: 99.9%
+                </Text>
+              </Flex>
             </Flex>
           </Flex>
         </Flex>
@@ -89,3 +105,5 @@ export const Header = () => {
     </>
   );
 };
+
+export default Header;

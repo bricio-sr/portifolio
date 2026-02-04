@@ -1,17 +1,171 @@
 @use "../breakpoints.scss" as breakpoints;
 
+/* --- CLASSES DE UTILIDADE GERAIS --- */
 .hover {
     transition: var(--transition-micro-medium);
-
     &:hover {
         transform: translateX(var(--static-space-4));
     }
 }
 
+.textAlign {
+    /* Mantém o comportamento padrão, será sobrescrito pela media query abaixo se necessário */
+}
+
+.blockAlign {
+    /* Mantém o comportamento padrão */
+}
+
+.avatar {
+    z-index: 10;
+}
+
+/* --- 1. AJUSTES MOBILE (CENTRALIZAÇÃO NOME/ROLE/ICONES) --- */
 @media (max-width: breakpoints.$s) {
-    .textAlign {
+    .mobileCenteredHeader {
+        /* Garante que a coluna alinhe os itens filhos no centro */
+        align-items: center !important;
+        justify-content: center !important;
+        text-align: center !important;
+    }
+    
+    /* Força o alinhamento de texto para os componentes Heading e Text internos */
+    .mobileCenteredHeader h1,
+    .mobileCenteredHeader h2,
+    .mobileCenteredHeader span,
+    .mobileCenteredHeader div {
+        text-align: center !important;
     }
 
-    .blockAlign {
+    /* Ajuste específico para a Row dos ícones sociais */
+    .socialCentered {
+        justify-content: center !important;
+        width: 100% !important;
+        display: flex !important;
     }
+}
+
+/* --- 2. TERMINAL E EFEITO TYPING (CORRIGIDO) --- */
+
+.terminalBox {
+  font-family: 'Fira Code', 'Courier New', monospace;
+  background-color: #0d1117;
+  border: 1px solid #30363d;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+  
+  /* Garante o scroll horizontal e impede a quebra de linha do container */
+  width: 100%;
+  overflow-x: auto; 
+  overflow-y: hidden;
+  white-space: nowrap; 
+  display: block; /* Importante para o scroll funcionar bem */
+  
+  /* Esconde a barra de rolagem visualmente mas mantém a função */
+  scrollbar-width: none; 
+  &::-webkit-scrollbar { display: none; } 
+}
+
+/* O conteúdo de texto dentro do terminal */
+.terminalTextContent {
+    display: inline-block;
+    white-space: nowrap;
+    min-width: fit-content; /* Garante que o texto ocupe o espaço necessário */
+}
+
+.typewriterContainer {
+  display: inline-block;
+  vertical-align: bottom;
+}
+
+/* Animações */
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+
+@keyframes blink-caret {
+  from, to { border-color: transparent }
+  50% { border-color: #22c55e; }
+}
+
+.typewriterText {
+  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap;
+  vertical-align: bottom;
+  
+  /* Cursor piscante */
+  border-right: 10px solid #22c55e; 
+  
+  /* Configuração Desktop: Animação de digitação ativa */
+  width: 0;
+  animation: 
+    typing 3.5s steps(40, end) forwards, 
+    blink-caret .75s step-end infinite; 
+
+  /* --- CORREÇÃO PARA MOBILE --- */
+  /* No mobile, desativamos a animação de largura para evitar cortes e quebras */
+  @media (max-width: breakpoints.$s) {
+      width: auto !important; /* Mostra o texto todo imediatamente */
+      animation: blink-caret .75s step-end infinite; /* Mantém apenas o cursor piscando */
+      border-right-width: 6px; 
+      font-size: 0.8rem; /* Fonte levemente menor */
+  }
+}
+
+/* --- 3. POLICE TAPE (FITAS DE PROJETO) --- */
+@keyframes moveStripesSmooth {
+  0% { background-position: 0 0; }
+  100% { background-position: 40px 0; }
+}
+
+.projectCard {
+  overflow: hidden; 
+  position: relative;
+}
+
+.policeTapeBanner {
+  width: calc(100% + 48px);
+  margin-left: -24px;
+  margin-right: -24px;
+  margin-bottom: 24px;
+  
+  opacity: 0.85; 
+  backdrop-filter: blur(2px);
+
+  background-color: #2a2a2a; 
+  background-image: linear-gradient(
+    -45deg,
+    #FFD700 25%,
+    #2a2a2a 25%,
+    #2a2a2a 50%,
+    #FFD700 50%,
+    #FFD700 75%,
+    #2a2a2a 75%,
+    #2a2a2a 100%
+  );
+  background-size: 40px 40px; 
+  animation: moveStripesSmooth 2s linear infinite;
+  
+  border-top: 1px solid rgba(0,0,0,0.3);
+  border-bottom: 1px solid rgba(0,0,0,0.3);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1); 
+  
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 0;
+
+  span {
+    background-color: rgba(255, 215, 0, 0.95);
+    color: #1a1a1a;
+    font-weight: 800;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    padding: 4px 16px;
+    border: 1px solid #1a1a1a;
+    box-shadow: 3px 3px 0px rgba(0,0,0,0.8);
+    transform: skewX(-10deg);
+  }
 }

@@ -9,7 +9,7 @@ const person: Person = {
   avatar: "/images/avatar.jpg",
   email: "f@bricio.dev.br",
   location: "America/Sao_Paulo",
-  languages: ["Português", "English"],
+  languages: ["Português"],
 };
 
 const newsletter: Newsletter = {
@@ -169,14 +169,14 @@ const about: About = {
     institutions: [
       {
         name: "IMECC UNICAMP",
-        description: <>Candidato ao Mestrado Profissional em Matemática Aplicada e Computacional.</>,
+        description: <>Mestrado Profissional em Matemática Aplicada e Computacional (Em andamento).</>,
       },
       {
         name: "Universidade Pitágoras Unopar Anhanguera",
         description: <>
           • Pós-Graduação em Neurociências e Comportamento (Em andamento).<br/>
-          • Especialização em Engenharia de Software (Qualidade e Teste).<br/>
-          • Especialização em SRE (Site Reliability Engineering).<br/>
+          • Especialização em Engenharia de Software com Ênfase em Qualidade e Teste.<br/>
+          • Especialização em Engenharia de Confiabilidade de Site (SRE).<br/>
           • Graduação em Tecnologia DevOps.
         </>,
       },
