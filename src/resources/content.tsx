@@ -237,15 +237,15 @@ const about: About = {
       {
         title: "Cibus",
         description: "Assistente nutricional via WhatsApp com IA Multimodal (Gemini 3 Flash). Elimina a fricção do registro de dietas usando visão computacional para análise de calorias instantânea.",
-        techStack: ["Golang", "Google Cloud Run", "Gemini 3 Flash", "PostgreSQL", "WhatsApp API"],
+        techStack: ["Golang", "Google Cloud Run", "Gemini 3 Flash", "PostgreSQL", "WhatsApp API", "Stripe"],
         link: "https://cibus.bricio.dev.br", 
-        image: { src: '/images/cibus-cover.png', alt: 'Cibus Project', width: 16, height: 9 },
+        image: { src: '/images/avatar.jpg', alt: 'Cibus Project', width: 16, height: 9 },
         comingSoon: false
       },
       {
         title: "What Is Up",
         description: "Ferramenta de observabilidade 'Zero-Ops' via WhatsApp. Utiliza algoritmos estatísticos (Z-Score) para prever anomalias de latência antes que se tornem timeouts.",
-        techStack: ["Golang", "Supabase", "Z-Score Algo", "Cloud Run", "Stripe"],
+        techStack: ["Golang", "Google Cloud Run", "PostgreSQL", "Z-Score Algo", "Stripe"],
         link: null,
         comingSoon: true
       },
