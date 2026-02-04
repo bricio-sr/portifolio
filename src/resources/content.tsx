@@ -246,6 +246,7 @@ const about: About = {
         title: "What Is Up",
         description: "Ferramenta de observabilidade 'Zero-Ops' via WhatsApp. Utiliza algoritmos estatísticos (Z-Score) para prever anomalias de latência antes que se tornem timeouts.",
         techStack: ["Golang", "Google Cloud Run", "PostgreSQL", "Z-Score Algo", "Stripe"],
+        image: { src: '/images/whatisup-cover.png', alt: 'What Is Up Project', width: 16, height: 9 },
         link: null,
         comingSoon: true
       },

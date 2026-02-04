@@ -362,15 +362,20 @@ export default function About() {
                       {project.description}
                     </Text>
 
-                    {project.image && (
-                      <div style={{ border: '2px solid red', padding: '10px' }}>
-                        <p style={{ color: 'red' }}>Debug Path: {project.image.src}</p>
-                        <img 
-                          src={project.image.src} 
-                          alt={project.image.alt} 
-                          style={{ width: '100%', maxWidth: '300px' }} 
+                   {project.image && (
+                      <Row fillWidth marginBottom="m">
+                        <img
+                          src={project.image.src}
+                          alt={project.image.alt}
+                          style={{
+                            width: '100%',
+                            height: 'auto',
+                            borderRadius: '8px',
+                            objectFit: 'cover',
+                            border: '1px solid var(--neutral-medium)'
+                          }}
                         />
-                      </div>
+                      </Row>
                     )}
 
                     {/* Tech Stack (Tags) */}
