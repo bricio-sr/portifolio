@@ -13,11 +13,23 @@ import {
   Row,
   Accordion,
   Flex,
+  Line,
 } from "@once-ui-system/core";
 import { baseURL, about, person, social } from "@/resources";
 import TableOfContents from "@/components/about/TableOfContents";
 import styles from "@/components/about/about.module.scss";
 import React from "react";
+
+const SectionSeparator = () => (
+  <Row fillWidth horizontal="center" vertical="center" marginY="32">
+    <Line fillWidth height="1" background="neutral-weak" />
+    <Flex paddingX="16">
+      {/* Você pode trocar o icone por 'sparkle', 'grid', 'disc' ou 'close' */}
+      <Icon name="sparkle" size="s" onBackground="neutral-medium" />
+    </Flex>
+    <Line fillWidth height="1" background="neutral-weak" />
+  </Row>
+);
 
 export async function generateMetadata() {
   return Meta.generate({
@@ -28,6 +40,7 @@ export async function generateMetadata() {
     path: about.path,
   });
 }
+
 
 export default function About() {
   const structure = [
@@ -195,7 +208,7 @@ export default function About() {
               {about.intro.description}
             </Column>
           )}
-
+          {about.work.display && <SectionSeparator />}
           {about.work.display && (
             <>
               <Heading as="h2" id={about.work.title} variant="display-strong-s" marginBottom="m" className={styles.textAlign}>
@@ -262,7 +275,7 @@ export default function About() {
               </Column>
             </>
           )}
-
+          {about.studies.display && <SectionSeparator />}
           {about.studies.display && (
             <>
               <Heading as="h2" id={about.studies.title} variant="display-strong-s" marginBottom="l" className={styles.textAlign}>
@@ -282,7 +295,7 @@ export default function About() {
               </Column>
             </>
           )}
-
+          {about.certs?.display && <SectionSeparator />}
           {about.certs?.display && (
             <>
               <Heading as="h2" id={about.certs.title} variant="display-strong-s" marginBottom="xl" className={styles.textAlign}>
@@ -303,6 +316,7 @@ export default function About() {
               </Column>
             </>
           )}
+          {about.projects.display && <SectionSeparator />}
           {about.projects.display && (
             <>
               <Heading 
@@ -397,6 +411,7 @@ export default function About() {
               </Column>
             </>
           )}
+          {about.technical.display && <SectionSeparator />}
           {about.technical.display && (
             <>
               <Heading
