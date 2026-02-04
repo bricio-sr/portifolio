@@ -363,14 +363,14 @@ export default function About() {
                     </Text>
 
                     {project.image && (
-                      <Row fillWidth marginY="m">
-                        <Media
-                          radius="m"
-                          aspectRatio={`${project.image.width} / ${project.image.height}`}
-                          alt={project.image.alt}
-                          src={project.image.src}
+                      <div style={{ border: '2px solid red', padding: '10px' }}>
+                        <p style={{ color: 'red' }}>Debug Path: {project.image.src}</p>
+                        <img 
+                          src={project.image.src} 
+                          alt={project.image.alt} 
+                          style={{ width: '100%', maxWidth: '300px' }} 
                         />
-                      </Row>
+                      </div>
                     )}
 
                     {/* Tech Stack (Tags) */}
