@@ -8,10 +8,20 @@
     }
 }
 
-@media (max-width: breakpoints.$s) {
-    .textAlign {
-    }
+.avatar {
+  z-index: 10;
+}
 
-    .blockAlign {
-    }
+.blockAlign {
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.textAlign {
+  text-align: left;
+  
+  @media (max-width: 560px) {
+    text-align: center;
+    align-items: center;
+  }
 }

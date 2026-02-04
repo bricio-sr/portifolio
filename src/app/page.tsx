@@ -56,6 +56,11 @@ export default function About() {
       display: about.technical.display,
       items: about.technical.skills.map((skill) => skill.title),
     },
+    {
+      title: about.projects.title,
+      display: about.projects.display,
+      items: about.projects.items.map((project) => project.title),
+    },
   ];
   return (
     <Column maxWidth="m">
@@ -294,6 +299,72 @@ export default function About() {
                       ))}
                     </Column>
                   </Accordion>
+                ))}
+              </Column>
+            </>
+          )}
+          {about.projects.display && (
+            <>
+              <Heading 
+                as="h2" 
+                id={about.projects.title} 
+                variant="display-strong-s" 
+                marginBottom="m" 
+                className={styles.textAlign}
+              >
+                {about.projects.title}
+              </Heading>
+
+              <Column fillWidth gap="l" marginBottom="xl">
+                {about.projects.items.map((project: any, index: number) => (
+                  <Column 
+                    key={`${project.title}-${index}`} 
+                    fillWidth 
+                    border="neutral-medium" 
+                    radius="l" 
+                    padding="l"
+                    background="neutral-weak" 
+                  >
+                    {/* Cabeçalho do Card */}
+                    <Row horizontal="between" vertical="center" marginBottom="s">
+                      <Text id={project.title} variant="heading-strong-l">
+                        {project.title}
+                      </Text>
+                      {project.link && (
+                        <IconButton
+                          href={project.link}
+                          icon="arrow-up-right" // Confirme se este ícone existe no seu 'icons.ts' ou use 'globe'
+                          variant="tertiary"
+                          tooltip="Ver Projeto"
+                        />
+                      )}
+                    </Row>
+
+                    {/* Descrição */}
+                    <Text 
+                      variant="body-default-m" 
+                      onBackground="neutral-medium" 
+                      marginBottom="m"
+                      className={styles.textAlign}
+                    >
+                      {project.description}
+                    </Text>
+
+                    {/* Tech Stack (Tags) */}
+                    {project.techStack && project.techStack.length > 0 && (
+                      <Row wrap gap="8" vertical="center">
+                        {project.techStack.map((tech: string, techIndex: number) => (
+                          <Tag 
+                            key={`${project.title}-${techIndex}`} 
+                            size="m" 
+                            variant="neutral"
+                          >
+                            {tech}
+                          </Tag>
+                        ))}
+                      </Row>
+                    )}
+                  </Column>
                 ))}
               </Column>
             </>

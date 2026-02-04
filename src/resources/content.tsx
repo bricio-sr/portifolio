@@ -229,7 +229,7 @@ const about: About = {
         ]
       }
     ]
-},
+  },
   technical: {
     display: true,
     title: "Habilidades e Competências",
@@ -297,6 +297,31 @@ const about: About = {
         images: [],
       },
     ],
+  },
+  projects: {
+    title: "Projetos",
+    display: true,
+    items: [
+      {
+        title: "Cibus",
+        description: "Assistente nutricional via WhatsApp com IA Multimodal (Gemini 3 Flash). Elimina a fricção do registro de dietas usando visão computacional para análise de calorias instantânea.",
+        techStack: ["Golang", "Google Cloud Run", "Gemini 3 Flash", "PostgreSQL", "WhatsApp API"],
+        link: "https://wa.me/...", 
+        image: { src: '/images/cibus-cover.jpg', alt: 'Cibus Project', width: 16, height: 9 }
+      },
+      {
+        title: "What Is Up",
+        description: "Ferramenta de observabilidade 'Zero-Ops' via WhatsApp. Utiliza algoritmos estatísticos (Z-Score) para prever anomalias de latência antes que se tornem timeouts.",
+        techStack: ["Golang", "Supabase", "Z-Score Algo", "Cloud Run", "Stripe"],
+        link: null
+      },
+      {
+        title: "WePets",
+        description: "Gestão de identidade descentralizada para rastreabilidade animal via IoT (NFC). Foca em privacidade (LGPD) e ofuscação de dados com Hashids.",
+        techStack: ["Golang", "Next.js", "IoT/NFC", "Hashids", "Cloudflare"],
+        link: null
+      }
+    ]
   },
 };
 
