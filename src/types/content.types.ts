@@ -72,7 +72,8 @@ export interface ProjectItem {
   title: string;
   description: string;
   techStack: string[];
-  link?: string | null; // Aceita string ou null
+  link?: string | null;
+  comingSoon?: boolean; 
   image?: {
     src: string;
     alt: string;

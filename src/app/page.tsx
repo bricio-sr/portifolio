@@ -327,13 +327,25 @@ export default function About() {
                   >
                     {/* Cabeçalho do Card */}
                     <Row horizontal="between" vertical="center" marginBottom="s">
-                      <Text id={project.title} variant="heading-strong-l">
-                        {project.title}
-                      </Text>
+  
+                      {/* Agrupa Título e Tag na esquerda */}
+                      <Row vertical="center" gap="8">
+                        <Text id={project.title} variant="heading-strong-l">
+                          {project.title}
+                        </Text>
+                        
+                        {/* RENDERIZAÇÃO CONDICIONAL DA TAG */}
+                        {project.comingSoon && (
+                          <Tag size="m" variant="neutral" prefixIcon="time">
+                            Em breve
+                          </Tag>
+                        )}
+                      </Row>
+
                       {project.link && (
                         <IconButton
                           href={project.link}
-                          icon="arrow-up-right" // Confirme se este ícone existe no seu 'icons.ts' ou use 'globe'
+                          icon="arrow-up-right"
                           variant="tertiary"
                           tooltip="Ver Projeto"
                         />
