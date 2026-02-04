@@ -362,6 +362,17 @@ export default function About() {
                       {project.description}
                     </Text>
 
+                    {project.image && (
+                      <Row fillWidth marginY="m">
+                        <Media
+                          radius="m"
+                          aspectRatio={`${project.image.width} / ${project.image.height}`}
+                          alt={project.image.alt}
+                          src={project.image.src}
+                        />
+                      </Row>
+                    )}
+
                     {/* Tech Stack (Tags) */}
                     {project.techStack && project.techStack.length > 0 && (
                       <Row wrap gap="8" vertical="center">
