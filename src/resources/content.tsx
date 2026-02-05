@@ -254,6 +254,7 @@ const about: About = {
         title: "WePets",
         description: "Gestão de identidade descentralizada para rastreabilidade animal via IoT (NFC). Foca em privacidade (LGPD) e ofuscação de dados com Hashids.",
         techStack: ["Golang", "Next.js", "IoT/NFC", "Hashids", "Cloudflare"],
+        image: { src: '/images/wepets-cover.jpg', alt: 'What Is Up Project', width: 16, height: 9 },
         link: null,
         comingSoon: true
       }
