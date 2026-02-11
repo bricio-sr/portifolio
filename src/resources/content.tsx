@@ -351,15 +351,21 @@ const about: About = {
         title: "SRE & Infraestrutura de Missão Crítica",
         description: (
           <>
-            Foco em alta disponibilidade, resiliência e automação de processos críticos de ERP. 
-            Especialista em arquitetura distribuída e escalabilidade sistêmica.
+            Foco em alta disponibilidade, resiliência e automação de processos críticos. 
+            Especialista em arquitetura distribuída e escalabilidade e observabilidade sistêmica.
           </>
         ),
         tags: [
           { name: "Kubernetes", icon: "kubernetes" },
           { name: "Docker", icon: "docker" },
           { name: "Terraform", icon: "terraform" },
+          { name: "Prometheus", icon: "prometheus" },
+          { name: "Alert Manager", icon: "alertmanager" },
+          { name: "Grafana", icon: "grafana" },
+          { name: "Zabbix", icon: "zabbix" },
+          { name: "GCP", icon: "gcp" },
           { name: "AWS", icon: "aws" },
+          { name: "Azure", icon: "azure" },
         ],
         images: [],
       },
@@ -372,10 +378,17 @@ const about: About = {
           </>
         ),
         tags: [
+          { name: "ADVPL Protheus", icon: "advpl" },
+          { name: "Golang", icon: "go" },
           { name: "Python", icon: "python" },
+          { name: "Flutter", icon: "flutter" },
           { name: "TypeScript", icon: "typescript" },
           { name: "Node.js", icon: "nodejs" },
           { name: "PostgreSQL", icon: "postgresql" },
+          { name: "MySQL", icon: "mysql" },
+          { name: "OracleDB", icon: "oracle" },
+          { name: "MongoDB", icon: "mongodb" },
+          { name: "Firebase", icon: "firebase" },
         ],
         images: [],
       },
@@ -391,6 +404,8 @@ const about: About = {
           { name: "Neurociência", icon: "brain" },
           { name: "Tomada de Decisão", icon: "target" },
           { name: "Resolução de Problemas", icon: "puzzle" },
+          { name: "Autodidatismo", icon: "self-education" },
+          { name: "Alta Cognição", icon: "cognition" },
         ],
         images: [],
       },
@@ -405,6 +420,9 @@ const about: About = {
         tags: [
           { name: "Liderança Técnica", icon: "users" },
           { name: "Agile", icon: "activity" },
+          { name: "PMBOK", icon: "pmbok" },
+          { name: "Scrum", icon: "scrum" },
+          { name: "Cobit 5", icon: "cobit" },
           { name: "Cultura DevOps", icon: "repeat" },
         ],
         images: [],
