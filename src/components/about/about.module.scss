@@ -169,3 +169,16 @@
     transform: skewX(-10deg);
   }
 }
+
+.certificateLink {
+  text-decoration: none;
+  display: block;
+  cursor: pointer;
+  transition: background 0.2s ease;
+  border-radius: var(--radius-m); /* Ajusta o hover aos cantos arredondados */
+
+  /* O efeito de hover via CSS */
+  &:hover {
+    background-color: var(--neutral-weak);
+  }
+}

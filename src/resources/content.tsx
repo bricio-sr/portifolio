@@ -188,44 +188,127 @@ const about: About = {
   },
   certs: {
     display: true,
-    title: "Certificações e Especializações",
+    title: "Certificações e Cursos",
     categories: [
       {
-        title: "Cloud & Infraestrutura (SRE/DevOps)",
+        title: "Cloud, DevOps & Infraestrutura (Foco SRE)",
         items: [
-          { name: "AWS Cloud Practitioner Essentials" },
-          { name: "Infraestrutura como Código: AWS com Ansible e Terraform" },
-          { name: "AWS System Manager" },
-          { name: "Moving to Managed Databases to AWS" },
-          { name: "Build and Secure Networks in Google Cloud" },
-          { name: "IBM z/OS Mainframe Practitioner" }
+          { name: "AWS Cloud Practitioner Essentials", provider: "AWS", date: "2020", hours: "6h", file: "aws-cloud-practitioner.pdf" },
+          { name: "Introduction to Amazon Elastic Compute Cloud (EC2)", provider: "AWS", date: "2020", hours: "-", file: "aws-ec2-intro.pdf" },
+          { name: "Microsoft AZ-900 Parte 1: Azure Fundamentals", provider: "Alura", date: "2022", hours: "8h", file: "alura-az900-parte1.pdf" },
+          { name: "Microsoft AZ-900 Parte 2: Azure Fundamentals", provider: "Alura", date: "2022", hours: "8h", file: "alura-az900-parte2.pdf" },
+          { name: "Microsoft AZ-900 Parte 3: Azure Fundamentals", provider: "Alura", date: "2022", hours: "8h", file: "alura-az900-parte3.pdf" },
+          { name: "Microsoft AZ-900 Parte 4: Azure Fundamentals", provider: "Alura", date: "2022", hours: "8h", file: "alura-az900-parte4.pdf" },
+          { name: "Microsoft AZ-900: Simulado Comentado", provider: "Alura", date: "2022", hours: "12h", file: "alura-az900-simulado.pdf" },
+          { name: "Infraestrutura como Código: Ansible e Terraform na AWS", provider: "Alura", date: "2023", hours: "8h", file: "alura-iac-ansible-terraform.pdf" },
+          { name: "Docker: Criando e Gerenciando Containers", provider: "Alura", date: "2023", hours: "10h", file: "alura-docker-containers.pdf" },
+          { name: "Integração Contínua: Pipeline Docker no Github Actions", provider: "Alura", date: "2023", hours: "8h", file: "alura-ci-docker-github.pdf" },
+          { name: "Integração Contínua: Testes Automatizados e Pipeline", provider: "Alura", date: "2023", hours: "6h", file: "alura-ci-testes-pipeline.pdf" },
+          { name: "Observabilidade: Métricas com Prometheus", provider: "Alura", date: "2023", hours: "10h", file: "alura-observabilidade-prometheus.pdf" },
+          { name: "Monitoramento: Prometheus, Grafana e Alertmanager", provider: "Alura", date: "2023", hours: "12h", file: "alura-monitoramento-grafana.pdf" },
+          { name: "Introduction to Cloud Computing", provider: "IBM (Coursera)", date: "2020", hours: "-", file: "coursera-ibm-cloud-computing.pdf" },
+          { name: "Introduction to Enterprise Computing", provider: "IBM (Coursera)", date: "2019", hours: "-", file: "coursera-ibm-enterprise.pdf" },
+          { name: "IBM z/OS Mainframe Practitioner (Professional Certificate)", provider: "IBM (Coursera)", date: "2019", hours: "-", file: "coursera-ibm-mainframe-practitioner.pdf" },
+          { name: "Basic System Programming on IBM Z", provider: "IBM (Coursera)", date: "2019", hours: "-", file: "coursera-ibm-system-programming.pdf" },
+          { name: "Getting Started on Mainframe with z/OS", provider: "IBM (Coursera)", date: "2019", hours: "-", file: "coursera-ibm-getting-started-zos.pdf" },
+          { name: "System Administration and IT Infrastructure Services", provider: "Google (Coursera)", date: "2019", hours: "-", file: "coursera-google-sysadmin.pdf" },
+          { name: "Google IT Support (Professional Certificate)", provider: "Google (Coursera)", date: "2019", hours: "-", file: "coursera-google-it-support.pdf" }
         ]
       },
       {
-        title: "Inteligência Artificial e Data Science",
+        title: "Linux & Sistema Operacional",
         items: [
-          { name: "Data Science IBM (Coursera)" },
-          { name: "Developing Machine Learning Applications (AWS)" },
-          { name: "Prepare Data for ML APIs on Google Cloud" },
-          { name: "Perform Foundational Data, ML, and AI Tasks (Google)" }
+          { name: "Linux I: Conhecendo e Utilizando o Terminal", provider: "Alura", date: "2022", hours: "4h", file: "alura-linux-1.pdf" },
+          { name: "Linux II: Programas, Processos e Pacotes", provider: "Alura", date: "2022", hours: "8h", file: "alura-linux-2.pdf" },
+          { name: "Certificação Linux LPI Essentials Parte 1: Evolution", provider: "Alura", date: "2022", hours: "8h", file: "alura-lpi-parte1.pdf" },
+          { name: "Certificação Linux LPI Essentials Parte 2: Open Source", provider: "Alura", date: "2022", hours: "8h", file: "alura-lpi-parte2.pdf" },
+          { name: "Certificação Linux LPI Essentials Parte 3: Command Line", provider: "Alura", date: "2022", hours: "8h", file: "alura-lpi-parte3.pdf" },
+          { name: "Certificação Linux LPI Essentials Parte 12: Security", provider: "Alura", date: "2022", hours: "4h", file: "alura-lpi-parte12.pdf" },
+          { name: "Linux Onboarding: Usando a CLI", provider: "Alura", date: "2022", hours: "8h", file: "alura-linux-onboarding-cli.pdf" },
+          { name: "Linux Onboarding: Localizando Arquivos", provider: "Alura", date: "2022", hours: "8h", file: "alura-linux-onboarding-find.pdf" },
+          { name: "Windows Prompt: Linha de Comando", provider: "Alura", date: "2022", hours: "5h", file: "alura-windows-prompt.pdf" },
+          { name: "Vim: Boas Práticas e Edição no Terminal", provider: "Alura", date: "2022", hours: "20h", file: "alura-vim.pdf" },
+          { name: "Operating Systems and You: Becoming a Power User", provider: "Google (Coursera)", date: "2019", hours: "-", file: "coursera-google-os-poweruser.pdf" }
         ]
       },
       {
-        title: "Desenvolvimento e Engenharia de Software",
+        title: "Segurança da Informação (Cybersecurity)",
         items: [
-          { name: "Flutter Development (Google)" },
-          { name: "PCAP – Programming Essentials in Python" },
-          { name: "Segurança de Aplicações" },
-          { name: "Arduino para Robótica" }
+          { name: "Formação: Segurança de Aplicações", provider: "Alura", date: "2022", hours: "50h", file: "alura-formacao-seguranca.pdf" },
+          { name: "Segurança de Redes: Vulnerabilidades de Servidores", provider: "Alura", date: "2022", hours: "10h", file: "alura-seguranca-redes-vuln.pdf" },
+          { name: "Segurança de Redes: Firewall com PFSense e IPTables", provider: "Alura", date: "2022", hours: "10h", file: "alura-seguranca-firewall.pdf" },
+          { name: "Segurança Web: Vulnerabilidades e OWASP", provider: "Alura", date: "2022", hours: "12h", file: "alura-seguranca-web-owasp.pdf" },
+          { name: "Segurança Web em Java: SQL Injection e Força Bruta", provider: "Alura", date: "2022", hours: "8h", file: "alura-seguranca-java-1.pdf" },
+          { name: "Segurança Web em Java Parte 2: XSS e Uploads", provider: "Alura", date: "2022", hours: "6h", file: "alura-seguranca-java-2.pdf" },
+          { name: "IT Security: Defense against the digital dark arts", provider: "Google (Coursera)", date: "2019", hours: "-", file: "coursera-google-it-security.pdf" },
+          { name: "Introduction to Cybersecurity", provider: "Cisco", date: "2020", hours: "-", file: "cisco-cybersecurity.pdf" }
         ]
       },
       {
-        title: "Redes e Comunicações",
+        title: "Redes e Telecomunicações",
         items: [
-          { name: "ISSABEL Communication Server" },
-          { name: "FiberHome BroadBand UNM2000" },
-          { name: "Administração de Redes" },
-          { name: "Google IT Support Professional" }
+          { name: "Redes Parte 1: Conceitos e Prática", provider: "Alura", date: "2022", hours: "10h", file: "alura-redes-1.pdf" },
+          { name: "Redes Parte 2: Projeto do Cliente ao Provedor", provider: "Alura", date: "2022", hours: "10h", file: "alura-redes-2.pdf" },
+          { name: "Redes Parte 3: Listas de Controle e Políticas", provider: "Alura", date: "2022", hours: "5h", file: "alura-redes-3.pdf" },
+          { name: "Redes Parte 4: Protocolos de Roteamento e IPv6", provider: "Alura", date: "2022", hours: "8h", file: "alura-redes-4.pdf" },
+          { name: "Redes Parte 5: Wi-Fi", provider: "Alura", date: "2022", hours: "6h", file: "alura-redes-5.pdf" },
+          { name: "Redes Onboarding: Uma Perspectiva Prática", provider: "Alura", date: "2022", hours: "8h", file: "alura-redes-onboarding.pdf" },
+          { name: "The Bits and Bytes of Computer Networking", provider: "Google (Coursera)", date: "2019", hours: "-", file: "coursera-google-networking.pdf" },
+          { name: "FiberHome BroadBand UNM2000 (NMS)", provider: "Entelco", date: "2020", hours: "10h", file: "entelco-fiberhome.pdf" },
+          { name: "Issabel Communication Server (VoIP)", provider: "Tecamp", date: "2020", hours: "23h", file: "tecamp-issabel.pdf" }
+        ]
+      },
+      {
+        title: "Desenvolvimento Mobile (Flutter)",
+        items: [
+          { name: "Flutter: Criando um App", provider: "Alura", date: "2022", hours: "15h", file: "alura-flutter-criando-app.pdf" },
+          { name: "Flutter com Web API: Integrando sua App", provider: "Alura", date: "2022", hours: "8h", file: "alura-flutter-webapi.pdf" },
+          { name: "Flutter: Entendendo Comunicação HTTP", provider: "Alura", date: "2022", hours: "10h", file: "alura-flutter-http.pdf" },
+          { name: "Persistência com Flutter: Armazenamento Interno", provider: "Alura", date: "2022", hours: "8h", file: "alura-flutter-persistencia.pdf" },
+          { name: "Flutter: Gerenciamento de Estados com Provider", provider: "Alura", date: "2022", hours: "8h", file: "alura-flutter-provider.pdf" },
+          { name: "Flutter: Firebase Crashlytics e Erros em Tempo Real", provider: "Alura", date: "2022", hours: "10h", file: "alura-flutter-firebase.pdf" },
+          { name: "Flutter: Streams de Programação Reativa com Bloc", provider: "Alura", date: "2022", hours: "8h", file: "alura-flutter-bloc.pdf" }
+        ]
+      },
+      {
+        title: "Desenvolvimento Web & Backend",
+        items: [
+          { name: "Arquitetura de Sistemas Avançado", provider: "DIO", date: "2019", hours: "3h", file: "dio-arquitetura.pdf" },
+          { name: "Arquitetura de Computadores: Como funciona", provider: "Alura", date: "2022", hours: "8h", file: "alura-arquitetura-computadores.pdf" },
+          { name: "Laravel: Criando uma Aplicação com MVC", provider: "Alura", date: "2023", hours: "8h", file: "alura-laravel-mvc.pdf" },
+          { name: "PHP: Conceitos, Dados, Loops", provider: "Alura", date: "2022", hours: "6h", file: "alura-php-conceitos.pdf" },
+          { name: "Avançando com PHP: Arrays, Strings, Web", provider: "Alura", date: "2022", hours: "8h", file: "alura-php-avancado.pdf" },
+          { name: "PCAP: Programming Essentials in Python", provider: "Python Institute", date: "2020", hours: "-", file: "python-institute-pcap.pdf" },
+          { name: "Git e GitHub: Repositório, Commit e Versões", provider: "Alura", date: "2022", hours: "8h", file: "alura-git-github.pdf" },
+          { name: "HTML5 e CSS3 Parte 1: Crie uma Página da Web", provider: "Alura", date: "2022", hours: "8h", file: "alura-html-css-1.pdf" },
+          { name: "HTML5 e CSS3 Parte 2: Posicionamento e Listas", provider: "Alura", date: "2022", hours: "8h", file: "alura-html-css-2.pdf" },
+          { name: "HTML5 e CSS3 Parte 3: Formulários e Tabelas", provider: "Alura", date: "2022", hours: "8h", file: "alura-html-css-3.pdf" },
+          { name: "WordPress: Sites com Elementor", provider: "Alura", date: "2022", hours: "8h", file: "alura-wordpress-elementor.pdf" },
+          { name: "WordPress: Integração WhatsApp", provider: "Alura", date: "2022", hours: "8h", file: "alura-wordpress-whatsapp.pdf" },
+          { name: "WordPress: Criação de um Tema Personalizado", provider: "Alura", date: "2022", hours: "10h", file: "alura-wordpress-tema.pdf" },
+          { name: "Plugin no WordPress: Widget e Shortcode", provider: "Alura", date: "2022", hours: "8h", file: "alura-wordpress-plugin.pdf" },
+          { name: "SEO WordPress: Otimize o Ranqueamento", provider: "Alura", date: "2022", hours: "4h", file: "alura-wordpress-seo.pdf" },
+          { name: "SEO: Otimização de Sites", provider: "Alura", date: "2022", hours: "8h", file: "alura-seo-sites.pdf" }
+        ]
+      },
+      {
+        title: "Gestão, Métodos Ágeis e Dados",
+        items: [
+          { name: "COBIT 5 Foundations Parte 1: Governança", provider: "Alura", date: "2022", hours: "14h", file: "alura-cobit-1.pdf" },
+          { name: "COBIT 5 Foundations Parte 2: Princípios", provider: "Alura", date: "2022", hours: "9h", file: "alura-cobit-2.pdf" },
+          { name: "Scrum: Agilidade em seu Projeto", provider: "Alura", date: "2022", hours: "10h", file: "alura-scrum.pdf" },
+          { name: "Agilidade: Promovendo a Transformação Ágil", provider: "Alura", date: "2022", hours: "6h", file: "alura-agilidade-transformacao.pdf" },
+          { name: "A Empresa Ágil: Business Agility", provider: "Alura", date: "2022", hours: "6h", file: "alura-empresa-agil.pdf" },
+          { name: "Lean Startup: Primeiros Passos", provider: "Alura", date: "2022", hours: "5h", file: "alura-lean-startup.pdf" },
+          { name: "Gestão de Projetos (Especialização)", provider: "USP/UCI (Coursera)", date: "2020", hours: "-", file: "coursera-usp-gestao-projetos-specialization.pdf" },
+          { name: "Iniciação e Planejamento de Projetos", provider: "USP/UCI (Coursera)", date: "2020", hours: "-", file: "coursera-usp-iniciacao-projetos.pdf" },
+          { name: "Orçamento e Cronograma de Projetos", provider: "USP/UCI (Coursera)", date: "2020", hours: "-", file: "coursera-usp-orcamento-projetos.pdf" },
+          { name: "Gestão de Riscos e Mudanças em Projetos", provider: "USP/UCI (Coursera)", date: "2020", hours: "-", file: "coursera-usp-riscos-projetos.pdf" },
+          { name: "Projeto Aplicado - Gestão de Projetos", provider: "USP/UCI (Coursera)", date: "2020", hours: "-", file: "coursera-usp-projeto-aplicado.pdf" },
+          { name: "Introduction to Artificial Intelligence (AI)", provider: "IBM (Coursera)", date: "2020", hours: "-", file: "coursera-ibm-ai-intro.pdf" },
+          { name: "What is Data Science?", provider: "IBM (Coursera)", date: "2020", hours: "-", file: "coursera-ibm-datascience.pdf" },
+          { name: "Key Technologies for Business (Specialization)", provider: "IBM (Coursera)", date: "2020", hours: "-", file: "coursera-ibm-key-technologies.pdf" },
+          { name: "Technical Support Fundamentals", provider: "Google (Coursera)", date: "2019", hours: "-", file: "coursera-google-tech-support.pdf" }
         ]
       }
     ]

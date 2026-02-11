@@ -274,7 +274,7 @@ export default function About() {
                       <span className={styles.typewriterText}>
                         fabricio 
                         <span style={{color: '#a3a3a3'}}> --role</span> sre 
-                        <span style={{color: '#a3a3a3'}}> --status</span> <span style={{color: '#facc15'}}>"building what is up"</span>
+                        <span style={{color: '#a3a3a3'}}> --status</span> <span style={{color: '#facc15'}}>"building WePets"</span>
                       </span>
                     </span>
                   </Text>
@@ -354,17 +354,61 @@ export default function About() {
 
           {about.certs?.display && (
             <>
-              <Heading as="h2" id={about.certs.title} variant="display-strong-s" marginBottom="m" className={styles.textAlign}>
+              <Heading 
+                as="h2" 
+                id={about.certs.title} 
+                variant="display-strong-s" 
+                marginBottom="m" 
+                className={styles.textAlign}
+              >
                 {about.certs.title}
               </Heading>
-              <Column fillWidth gap="4" marginBottom="m" >
+
+              <Column fillWidth gap="4" marginBottom="m">
                 {about.certs.categories.map((category, index) => (
                   <Accordion key={index} title={category.title} style={{ marginLeft: -15 }}>
-                    <Column as="ul" gap="8" paddingBottom="m">
+                    <Column gap="8" paddingBottom="m">
                       {category.items.map((item, i) => (
-                        <Text as="li" key={i} variant="body-default-m" onBackground="neutral-weak">
-                          {item.name}
-                        </Text>
+                        <a
+                          key={i} // A Key deve ficar no elemento mais externo
+                          href={`/certificados/${item.file}`}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className={styles.certificateLink}
+                        >
+                          <Row
+                            vertical="center"
+                            horizontal="between"
+                            padding="8"
+                          >
+                            {/* Lado Esquerdo: Ícone + Título + Provedor */}
+                            <Row gap="12" vertical="center" flex={1}>
+                              <Icon name="document" size="s" onBackground="neutral-medium" />
+
+                              <Column>
+                                <Text variant="body-default-m" onBackground="neutral-strong">
+                                  {item.name}
+                                </Text>
+                                <Text variant="body-default-xs" onBackground="neutral-medium">
+                                  {item.provider}
+                                </Text>
+                              </Column>
+                            </Row>
+
+                            {/* Lado Direito: Tags */}
+                            <Row gap="16" vertical="center" s={{ hide: true }}>
+                              {item.hours !== "-" && (
+                                <Tag size="s" variant="neutral">
+                                  {item.hours}
+                                </Tag>
+                              )}
+                              <Text variant="body-default-xs" onBackground="neutral-medium">
+                                {item.date}
+                              </Text>
+                              <Icon name="arrow-up-right" size="xs" onBackground="neutral-weak" />
+                            </Row>
+                          </Row>
+                        </a>
                       ))}
                     </Column>
                   </Accordion>

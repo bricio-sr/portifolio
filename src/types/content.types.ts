@@ -66,7 +66,7 @@ export interface Home extends BasePageConfig {
 }
 
 /**
- * DEFINIÇÃO DO PROJECT ITEM (Adicionado aqui)
+ * DEFINIÇÃO DO PROJECT ITEM
  */
 export interface ProjectItem {
   title: string;
@@ -127,6 +127,7 @@ export interface About extends BasePageConfig {
       description: React.ReactNode;
     }>;
   };
+  // === AQUI ESTAVA O ERRO ===
   certs: {
     display: boolean;
     title: string;
@@ -134,6 +135,10 @@ export interface About extends BasePageConfig {
       title: string;
       items: Array<{
         name: string;
+        provider: string; // Adicionado
+        date: string;     // Adicionado
+        hours: string;    // Adicionado
+        file: string;     // Adicionado
       }>;
     }>;
   };
@@ -155,7 +160,6 @@ export interface About extends BasePageConfig {
       }>;
     }>;
   };
-  // Agora o TypeScript sabe o que é ProjectItem
   projects: {
     title: string;
     display: boolean;
