@@ -274,7 +274,7 @@ export default function About() {
                       <span className={styles.typewriterText}>
                         fabricio 
                         <span style={{color: '#a3a3a3'}}> --role</span> sre 
-                        <span style={{color: '#a3a3a3'}}> --status</span> <span style={{color: '#facc15'}}>"building WePets"</span>
+                        <span style={{color: '#a3a3a3'}}> --status</span> <span style={{color: '#facc15'}}>"building HOSA"</span>
                       </span>
                     </span>
                   </Text>
