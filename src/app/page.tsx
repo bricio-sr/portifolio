@@ -569,13 +569,13 @@ export default function About() {
                 align="center" 
                 style={{ maxWidth: '32rem' }}
               >
-                  Estou sempre em busca de problemas difíceis que exijam arquitetura robusta e observabilidade.
+                  Estou sempre em busca de problemas difíceis que exijam arquitetura robusta, machine learning e observabilidade.
               </Text>
             </Column>
             
             <Button
               href={`mailto:${person.email}`}
-              label="Vamos tomar um café virtual"
+              label="Vamos tomar um café"
               prefixIcon="email"
               variant="primary"
               size="l"
