@@ -348,7 +348,7 @@ const about: About = {
         status: { label: "Prova de Conceito (PoC)", color: "accent" } 
       }
     ]
-  }
+  },
   technical: {
     display: true,
     title: "Habilidades e Competências",
