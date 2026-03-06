@@ -5,7 +5,7 @@ const person: Person = {
   firstName: "Fabricio",
   lastName: "Amorim",
   name: `Fabricio`,
-  role: "SRE & Software Engineer",
+  role: "Fullstack Developer",
   avatar: "/images/avatar.jpg",
   email: "f@bricio.dev.br",
   location: "America/Sao_Paulo",
@@ -67,7 +67,8 @@ const home: Home = {
   },
   subline: (
     <>
-      Prazer, sou Fabricio Roney. Utilizo <strong>matemática aplicada e neurociência</strong> para projetar infraestruturas que não apenas escalam, mas resistem autonomamente. Garanto que a tecnologia seja o motor — e nunca o gargalo — do negócio.
+      Prazer, sou Fabricio Roney. Projeto infraestruturas que não apenas escalam, mas resistem,
+      garantindo que a tecnologia seja o motor — e nunca o gargalo — do negócio.
     </>
   ),
 };
@@ -111,13 +112,13 @@ const about: About = {
         role: "Desenvolvedor Fullstack",
         achievements: [
           <>
-            Atuo como referência técnica na engenharia e sustentação de infraestrutura de missão crítica, liderando a resolução de desafios de alta complexidade e melhoria contínua.
+            Atuo como referência técnica em desafios de alta complexidade, sendo o responsável por introduzir e resolver problemas em tecnologias desconhecidas pelo time, além de liderar a melhoria contínua da qualidade de código.
           </>,
           <>
-            Design e implementação de <strong>arquiteturas distribuídas</strong> de integração, automatizando processos críticos de ERP com alto ganho de eficiência operacional.
+            Projetei arquiteturas de integração que servem como ponte entre diferentes plataformas, automatizando processos críticos de ERP com ganho de eficiência operacional.
           </>,
           <>
-            Implementação de cultura SRE e observabilidade avançada, aplicando modelagem de sistemas, <strong>algoritmos estatísticos e princípios de machine learning</strong> para prever gargalos e reduzir a carga operacional.
+            Implementação de práticas de SRE e Observabilidade para garantir a resiliência e a alta disponibilidade de sistemas distribuídos.
           </>,
         ],
         images: [
@@ -174,14 +175,14 @@ const about: About = {
         name: "Universidade Pitágoras Unopar Anhanguera",
         description: <>
           • Pós-Graduação em Neurociências e Comportamento (Em andamento).<br/>
-          • Pós-Graduação em Engenharia de Software com Ênfase em Qualidade e Teste.<br/>
-          • Pós-Graduação em Engenharia de Confiabilidade de Site (SRE).<br/>
+          • Especialização em Engenharia de Software com Ênfase em Qualidade e Teste.<br/>
+          • Especialização em Engenharia de Confiabilidade de Site (SRE).<br/>
           • Graduação em Tecnologia DevOps.
         </>,
       },
       {
         name: "FATEC - Faculdade de Tecnologia de Itu",
-        description: <>Graduação em Gestão de Tecnologia da Informação.</>,
+        description: <>Graduação em Gestão de Tecnologia da Informação (Em andamento).</>,
       },
     ],
   },
@@ -318,19 +319,11 @@ const about: About = {
     items: [
       {
         title: "HOSA (Homeostasis Operating System Agent)",
-        description: "Agente autônomo de resiliência inspirado no sistema nervoso humano. Atua direto no Kernel Linux via eBPF, utilizando Matemática Multivariável (Distância de Mahalanobis) para prever e mitigar falhas sistêmicas em milissegundos, antes mesmo do OOM-Killer.",
+        description: "Agente autônomo de resiliência inspirado no sistema nervoso humano. Atua direto no Kernel Linux via eBPF, utilizando Matemática Multivariável para prever falhas.",
         techStack: ["Golang", "eBPF / C", "Algebra Linear", "Linux Kernel", "Cgroups v2", "Machine Learning"],
-        image: { src: '/images/hosa-cover.png', alt: 'HOSA Project Architecture', width: 16, height: 9 },
+        image: { src: '/images/hosa-cover.png', alt: 'HOSA Project', width: 16, height: 9 },
         link: "https://github.com/bricio-sr/hosa",
-        comingSoon: true
-      },
-      {
-        title: "WePets",
-        description: "Gestão de identidade descentralizada para rastreabilidade animal via IoT (NFC). Foca em privacidade (LGPD) e ofuscação de dados com Hashids.",
-        techStack: ["Golang", "Next.js", "IoT/NFC", "Hashids", "Cloudflare"],
-        image: { src: '/images/wepets-cover.jpg', alt: 'What Is Up Project', width: 16, height: 9 },
-        link:  "https://wepetstag.com",
-        comingSoon: true
+        status: { label: "Em Construção (Open Source)", color: "info" } 
       },
       {
         title: "Cibus",
@@ -338,7 +331,6 @@ const about: About = {
         techStack: ["Golang", "Google Cloud Run", "Gemini 3 Flash", "PostgreSQL", "WhatsApp API", "Stripe"],
         link: "https://cibus.bricio.dev.br", 
         image: { src: '/images/cibus-cover.png', alt: 'Cibus Project', width: 16, height: 9 },
-        comingSoon: false
       },
       {
         title: "What Is Up",
@@ -346,8 +338,16 @@ const about: About = {
         techStack: ["Golang", "Google Cloud Run", "PostgreSQL", "Z-Score Algo", "Stripe"],
         image: { src: '/images/whatisup-cover.png', alt: 'What Is Up Project', width: 16, height: 9 },
         link: null,
-        comingSoon: true
-      }      
+        status: { label: "Pausado", color: "warning" } 
+      },
+      {
+        title: "WePets",
+        description: "Gestão de identidade descentralizada para rastreabilidade animal via IoT (NFC). Foca em privacidade (LGPD) e ofuscação de dados com Hashids.",
+        techStack: ["Golang", "Next.js", "IoT/NFC", "Hashids", "Cloudflare"],
+        image: { src: '/images/wepets-cover.jpg', alt: 'WePets Project', width: 16, height: 9 },
+        link: "https://wepetstag.com",
+        status: { label: "Prova de Conceito (PoC)", color: "accent" } 
+      }
     ]
   },
   technical: {
@@ -358,21 +358,15 @@ const about: About = {
         title: "SRE & Infraestrutura de Missão Crítica",
         description: (
           <>
-            Foco em alta disponibilidade, resiliência e automação de processos críticos. 
-            Especialista em arquitetura distribuída e escalabilidade e observabilidade sistêmica.
+            Foco em alta disponibilidade, resiliência e automação de processos críticos de ERP. 
+            Especialista em arquitetura distribuída e escalabilidade sistêmica.
           </>
         ),
         tags: [
           { name: "Kubernetes", icon: "kubernetes" },
           { name: "Docker", icon: "docker" },
           { name: "Terraform", icon: "terraform" },
-          { name: "Prometheus", icon: "prometheus" },
-          { name: "Alert Manager", icon: "alertmanager" },
-          { name: "Grafana", icon: "grafana" },
-          { name: "Zabbix", icon: "zabbix" },
-          { name: "GCP", icon: "gcp" },
           { name: "AWS", icon: "aws" },
-          { name: "Azure", icon: "azure" },
         ],
         images: [],
       },
@@ -385,17 +379,10 @@ const about: About = {
           </>
         ),
         tags: [
-          { name: "ADVPL Protheus", icon: "advpl" },
-          { name: "Golang", icon: "go" },
           { name: "Python", icon: "python" },
-          { name: "Flutter", icon: "flutter" },
           { name: "TypeScript", icon: "typescript" },
           { name: "Node.js", icon: "nodejs" },
           { name: "PostgreSQL", icon: "postgresql" },
-          { name: "MySQL", icon: "mysql" },
-          { name: "OracleDB", icon: "oracle" },
-          { name: "MongoDB", icon: "mongodb" },
-          { name: "Firebase", icon: "firebase" },
         ],
         images: [],
       },
@@ -411,8 +398,6 @@ const about: About = {
           { name: "Neurociência", icon: "brain" },
           { name: "Tomada de Decisão", icon: "target" },
           { name: "Resolução de Problemas", icon: "puzzle" },
-          { name: "Autodidatismo", icon: "self-education" },
-          { name: "Alta Cognição", icon: "cognition" },
         ],
         images: [],
       },
@@ -427,9 +412,6 @@ const about: About = {
         tags: [
           { name: "Liderança Técnica", icon: "users" },
           { name: "Agile", icon: "activity" },
-          { name: "PMBOK", icon: "pmbok" },
-          { name: "Scrum", icon: "scrum" },
-          { name: "Cobit 5", icon: "cobit" },
           { name: "Cultura DevOps", icon: "repeat" },
         ],
         images: [],

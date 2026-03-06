@@ -467,14 +467,16 @@ export default function About() {
                       {project.description}
                     </Text>
 
-                    {project.comingSoon && (
-                      <div className={styles.policeTapeBanner}>
-                        <span>EM DESENVOLVIMENTO</span>
-                      </div>
+                    {project.status && (
+                      <Row marginBottom="m">
+                        <Tag variant={project.status.color} size="m">
+                          {project.status.label}
+                        </Tag>
+                      </Row>
                     )}
 
                     {project.image && (
-                      <Row fillWidth marginBottom="l" paddingTop={project.comingSoon ? '0' : 'm'}>
+                      <Row fillWidth marginBottom="l">
                         <img
                           src={project.image.src}
                           alt={project.image.alt}

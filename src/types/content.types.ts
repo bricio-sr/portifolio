@@ -73,7 +73,10 @@ export interface ProjectItem {
   description: string;
   techStack: string[];
   link?: string | null;
-  comingSoon?: boolean; 
+  status?: {
+    label: string;
+    color: "info" | "warning" | "accent" | "success" | "danger" | "neutral" | string;
+  };
   image?: {
     src: string;
     alt: string;
