@@ -174,14 +174,14 @@ const about: About = {
         name: "Universidade Pitágoras Unopar Anhanguera",
         description: <>
           • Pós-Graduação em Neurociências e Comportamento (Em andamento).<br/>
-          • Especialização em Engenharia de Software com Ênfase em Qualidade e Teste.<br/>
-          • Especialização em Engenharia de Confiabilidade de Site (SRE).<br/>
+          • Pós-Graduação em Engenharia de Software com Ênfase em Qualidade e Teste.<br/>
+          • Pós-Graduação em Engenharia de Confiabilidade de Site (SRE).<br/>
           • Graduação em Tecnologia DevOps.
         </>,
       },
       {
         name: "FATEC - Faculdade de Tecnologia de Itu",
-        description: <>Graduação em Gestão de Tecnologia da Informação (Em andamento).</>,
+        description: <>Graduação em Gestão de Tecnologia da Informação.</>,
       },
     ],
   },
