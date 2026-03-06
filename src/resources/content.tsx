@@ -5,7 +5,7 @@ const person: Person = {
   firstName: "Fabricio",
   lastName: "Amorim",
   name: `Fabricio`,
-  role: "Fullstack Developer",
+  role: "SRE & Software Engineer",
   avatar: "/images/avatar.jpg",
   email: "f@bricio.dev.br",
   location: "America/Sao_Paulo",
@@ -67,8 +67,7 @@ const home: Home = {
   },
   subline: (
     <>
-      Prazer, sou Fabricio Roney. Projeto infraestruturas que não apenas escalam, mas resistem,
-      garantindo que a tecnologia seja o motor — e nunca o gargalo — do negócio.
+      Prazer, sou Fabricio Roney. Utilizo <strong>matemática aplicada e neurociência</strong> para projetar infraestruturas que não apenas escalam, mas resistem autonomamente. Garanto que a tecnologia seja o motor — e nunca o gargalo — do negócio.
     </>
   ),
 };
@@ -112,13 +111,13 @@ const about: About = {
         role: "Desenvolvedor Fullstack",
         achievements: [
           <>
-            Atuo como referência técnica em desafios de alta complexidade, sendo o responsável por introduzir e resolver problemas em tecnologias desconhecidas pelo time, além de liderar a melhoria contínua da qualidade de código.
+            Atuo como referência técnica na engenharia e sustentação de infraestrutura de missão crítica, liderando a resolução de desafios de alta complexidade e melhoria contínua.
           </>,
           <>
-            Projetei arquiteturas de integração que servem como ponte entre diferentes plataformas, automatizando processos críticos de ERP com ganho de eficiência operacional.
+            Design e implementação de <strong>arquiteturas distribuídas</strong> de integração, automatizando processos críticos de ERP com alto ganho de eficiência operacional.
           </>,
           <>
-            Implementação de práticas de SRE e Observabilidade para garantir a resiliência e a alta disponibilidade de sistemas distribuídos.
+            Implementação de cultura SRE e observabilidade avançada, aplicando modelagem de sistemas, <strong>algoritmos estatísticos e princípios de machine learning</strong> para prever gargalos e reduzir a carga operacional.
           </>,
         ],
         images: [
@@ -318,6 +317,22 @@ const about: About = {
     display: true,
     items: [
       {
+        title: "HOSA (Homeostasis Operating System Agent)",
+        description: "Agente autônomo de resiliência inspirado no sistema nervoso humano. Atua direto no Kernel Linux via eBPF, utilizando Matemática Multivariável (Distância de Mahalanobis) para prever e mitigar falhas sistêmicas em milissegundos, antes mesmo do OOM-Killer.",
+        techStack: ["Golang", "eBPF / C", "Algebra Linear", "Linux Kernel", "Cgroups v2", "Machine Learning"],
+        image: { src: '/images/hosa-cover.png', alt: 'HOSA Project Architecture', width: 16, height: 9 },
+        link: "https://github.com/bricio-sr/hosa",
+        comingSoon: true
+      },
+      {
+        title: "WePets",
+        description: "Gestão de identidade descentralizada para rastreabilidade animal via IoT (NFC). Foca em privacidade (LGPD) e ofuscação de dados com Hashids.",
+        techStack: ["Golang", "Next.js", "IoT/NFC", "Hashids", "Cloudflare"],
+        image: { src: '/images/wepets-cover.jpg', alt: 'What Is Up Project', width: 16, height: 9 },
+        link:  "https://wepetstag.com",
+        comingSoon: true
+      },
+      {
         title: "Cibus",
         description: "Assistente nutricional via WhatsApp com IA Multimodal (Gemini 3 Flash). Elimina a fricção do registro de dietas usando visão computacional para análise de calorias instantânea.",
         techStack: ["Golang", "Google Cloud Run", "Gemini 3 Flash", "PostgreSQL", "WhatsApp API", "Stripe"],
@@ -332,15 +347,7 @@ const about: About = {
         image: { src: '/images/whatisup-cover.png', alt: 'What Is Up Project', width: 16, height: 9 },
         link: null,
         comingSoon: true
-      },
-      {
-        title: "WePets",
-        description: "Gestão de identidade descentralizada para rastreabilidade animal via IoT (NFC). Foca em privacidade (LGPD) e ofuscação de dados com Hashids.",
-        techStack: ["Golang", "Next.js", "IoT/NFC", "Hashids", "Cloudflare"],
-        image: { src: '/images/wepets-cover.jpg', alt: 'What Is Up Project', width: 16, height: 9 },
-        link: null,
-        comingSoon: true
-      }
+      }      
     ]
   },
   technical: {
